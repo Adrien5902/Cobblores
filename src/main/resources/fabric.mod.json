@@ -12,7 +12,7 @@
 		"issues": "https://github.com/Adrien5902/Cobblores/issues"
 	},
 	"license": "MIT",
-	"icon": "assets/icon.png",
+	"icon": "assets/cobblores/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"client": ["net.ddns.adrien5902.cobblores.client.CobbloresClient"],
