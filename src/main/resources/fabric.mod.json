@@ -1,31 +1,32 @@
 {
-  "schemaVersion": 1,
-  "id": "cobblores",
-  "version": "${version}",
-  "name": "Cobblores",
-  "description": "Cobble stone generators can now also generate ores",
-  "authors": [],
-  "contact": {},
-  "license": "MIT",
-  "icon": "assets/cobblores/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "client": [
-      "net.ddns.adrien5902.cobblores.client.CobbloresClient"
-    ],
-    "main": [
-      "net.ddns.adrien5902.cobblores.Cobblores"
-    ]
-  },
-  "mixins": [
-    "cobblores.mixins.json",
-    {
-      "config": "cobblores.client.mixins.json",
-      "environment": "client"
-    }
-  ],
-  "depends": {
-    "fabricloader": ">=${loader_version}",
-    "minecraft": "${minecraft_version}"
-  }
+	"schemaVersion": 1,
+	"id": "cobblores",
+	"version": "${version}",
+	"name": "Cobblores",
+	"description": "Cobble stone generators can now also generate ores",
+	"authors": [{ "name": "Adrien5902" }],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/cobblores",
+		"email": "adrien.m5902@gmail.com",
+		"sources": "https://github.com/Adrien5902/Cobblores",
+		"issues": "https://github.com/Adrien5902/Cobblores/issues"
+	},
+	"license": "MIT",
+	"icon": "assets/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": ["net.ddns.adrien5902.cobblores.client.CobbloresClient"],
+		"main": ["net.ddns.adrien5902.cobblores.Cobblores"]
+	},
+	"mixins": [
+		"cobblores.mixins.json",
+		{
+			"config": "cobblores.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"minecraft": "${minecraft_version}"
+	}
 }
