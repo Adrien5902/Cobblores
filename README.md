@@ -1,7 +1,6 @@
 <h1 style="display: flex; align-items: center; justify-content: space-around;"><img height="100em" src="./src/main/resources/assets/cobblores/cobblores_title.png" alt="icon"></h1>
 
-![Modrinth Downloads](https://img.shields.io/modrinth/dt/ADDHERE?style=for-the-badge&logo=Modrinth&label=Modrinth%20Downloads&color=00af5c&link=https%3A%2F%2Fmodrinth.com%2Fmod%2Fcobblores) 
-![CurseForge Downloads](https://img.shields.io/curseforge/dt/ADDHERE?style=for-the-badge&logo=curseforge&label=CurseForge%20Downloads)
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/stxPAJHW?style=for-the-badge&logo=Modrinth&label=Modrinth%20Downloads&color=00af5c&link=https%3A%2F%2Fmodrinth.com%2Fmod%2Fcobblores) 
  ![GitHub Release](https://img.shields.io/github/v/release/Adrien5902/Cobblores?style=for-the-badge&label=Latest%20Released%20Version)
 
 A simple server-sided mod (can be configured when on client or in the server config file) to make cobblestone generators generate more blocks such as ores.
