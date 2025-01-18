@@ -1,7 +1,6 @@
 package net.ddns.adrien5902.cobblores;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import net.ddns.adrien5902.cobblores.ConfigManager.Config;
 import net.minecraft.block.Block;
@@ -11,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.random.Random;
 
 public class RandomTable {
-    private Map<Block, Integer> blocks;
+    public HashMap<Block, Integer> blocks;
 
     public static RandomTable readFromConfig(Config config) {
 

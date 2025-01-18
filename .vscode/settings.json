@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
-        "cobblores"
+        "cobblores",
+        "gson",
+        "Gson"
     ],
     "java.configuration.updateBuildConfiguration": "interactive"
 }

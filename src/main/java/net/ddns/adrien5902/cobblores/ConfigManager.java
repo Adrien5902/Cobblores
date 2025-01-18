@@ -1,24 +1,28 @@
 package net.ddns.adrien5902.cobblores;
 
-import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registries;
 
 public class ConfigManager {
-    public static File getFile() {
-        return FabricLoader.getInstance().getConfigDir().resolve(Cobblores.MOD_NAMESPACE + ".json").toFile();
+    private static Gson gson = new Gson();
+
+    public static Path getPath() {
+        return FabricLoader.getInstance().getConfigDir().resolve(Cobblores.MOD_NAMESPACE + ".json");
     }
 
     public static Config readConfig() {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            return objectMapper.readValue(getFile(), Config.class);
+            String json = Files.readString(getPath());
+            return Config.fromJson(json);
         } catch (IOException e) {
             return Config.DEFAULT;
         }
@@ -26,8 +30,7 @@ public class ConfigManager {
 
     public static void writeConfig(Config config) {
         try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.writeValue(getFile(), config);
+            Files.writeString(getPath(), config.toJson());
         } catch (IOException e) {
             System.err.println(e);
         }
@@ -39,6 +42,23 @@ public class ConfigManager {
 
         Config() {
             blocks = Map.of(Registries.BLOCK.getId(Blocks.COBBLESTONE).toString(), 1);
+        }
+
+        public static ConfigManager.Config fromJson(String json) {
+            return gson.fromJson(json, ConfigManager.Config.class);
+        }
+
+        public String toJson() {
+            return gson.toJson(this);
+        }
+
+        public void setBlocksTable(RandomTable blocksTable) {
+            HashMap<String, Integer> hashMap = new HashMap<>();
+            for (var entry : blocksTable.blocks.entrySet()) {
+                hashMap.put(Registries.BLOCK.getId(entry.getKey()).toString(), entry.getValue());
+            }
+
+            blocks = hashMap;
         }
     }
 }
