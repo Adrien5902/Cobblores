@@ -28,7 +28,6 @@ public class Cobblores implements ModInitializer {
 
         ServerPlayNetworking.registerGlobalReceiver(new Identifier(Cobblores.MOD_NAMESPACE, "request_config"),
                 (server, player, handler, buf, responseSender) -> {
-                    System.out.println(player.getName().getString());
                     if (player.hasPermissionLevel(4)) {
                         PacketByteBuf responseBuf = PacketByteBufs.create();
                         responseBuf.writeString(config.toJson());

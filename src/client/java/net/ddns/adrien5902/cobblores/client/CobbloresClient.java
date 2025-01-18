@@ -17,7 +17,6 @@ public class CobbloresClient implements ClientModInitializer {
                 (client, handler, buf, responseSender) -> {
                     String configData = buf.readString();
                     client.execute(() -> {
-                        System.out.println("aaaa");
                         Screen screen = MinecraftClient.getInstance().currentScreen;
                         if (screen instanceof ConfigScreen) {
                             ConfigManager.Config config = ConfigManager.Config.fromJson(configData);
