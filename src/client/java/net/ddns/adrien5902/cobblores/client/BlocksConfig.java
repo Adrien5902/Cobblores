@@ -35,6 +35,7 @@ public class BlocksConfig extends ElementListWidget<BlocksConfig.Entry> {
 
     public void update() {
         this.clearEntries();
+        this.addEntry(new HeaderEntry(this));
         for (var item : table.blocks.entrySet()) {
             this.addEntry(new BlockEntry(item.getKey(), item.getValue(), this));
         }
@@ -155,6 +156,30 @@ public class BlocksConfig extends ElementListWidget<BlocksConfig.Entry> {
         @Override
         public List<? extends Selectable> selectableChildren() {
             return ImmutableList.of(this.blockNameWidget, this.weightWidget, this.deleteButtonWidget);
+        }
+    }
+
+    private static class HeaderEntry extends Entry {
+        public HeaderEntry(BlocksConfig parent) {
+            super(parent);
+        }
+
+        @Override
+        public List<? extends Element> children() {
+            return Collections.emptyList();
+        }
+
+        @Override
+        public List<? extends Selectable> selectableChildren() {
+            return Collections.emptyList();
+        }
+
+        @Override
+        public void render(DrawContext context, int index, int y, int x, int entryWidth, int entryHeight, int mouseX,
+                int mouseY, boolean hovered, float tickDelta) {
+
+            context.drawText(client.textRenderer, Text.literal("Block"), x + 24, y + 8, 14737632, true);
+            context.drawText(client.textRenderer, Text.literal("Weight"), x + 164 + 24, y + 8, 14737632, true);
         }
     }
 
