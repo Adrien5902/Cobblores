@@ -16,7 +16,8 @@
 	"environment": "*",
 	"entrypoints": {
 		"client": ["net.ddns.adrien5902.cobblores.client.CobbloresClient"],
-		"main": ["net.ddns.adrien5902.cobblores.Cobblores"]
+		"main": ["net.ddns.adrien5902.cobblores.Cobblores"],
+		"modmenu": ["net.ddns.adrien5902.cobblores.client.CobbloresMenuApiImpl"]
 	},
 	"mixins": [
 		"cobblores.mixins.json",

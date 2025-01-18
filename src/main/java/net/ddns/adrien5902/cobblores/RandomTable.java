@@ -12,16 +12,18 @@ import net.minecraft.util.math.random.Random;
 public class RandomTable {
     public HashMap<Block, Integer> blocks;
 
-    public static RandomTable readFromConfig(Config config) {
+    public RandomTable(HashMap<Block, Integer> blocks) {
+        this.blocks = blocks;
+    }
 
-        RandomTable table = new RandomTable();
-        table.blocks = new HashMap<Block, Integer>();
+    public static RandomTable readFromConfig(Config config) {
+        HashMap<Block, Integer> blocks = new HashMap<Block, Integer>();
 
         for (var entry : config.blocks.entrySet()) {
-            table.blocks.put(Registries.BLOCK.get(Identifier.tryParse(entry.getKey())), entry.getValue());
+            blocks.put(Registries.BLOCK.get(Identifier.tryParse(entry.getKey())), entry.getValue());
         }
 
-        return table;
+        return new RandomTable(blocks);
     }
 
     public int getTotalWeight() {
